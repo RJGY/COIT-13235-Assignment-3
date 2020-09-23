@@ -1,0 +1,3 @@
+asadmin create-jdbc-connection-pool --datasourceclassname=org.apache.derby.jdbc.ClientDataSource --restype=javax.sql.DataSource --property portNumber=1527:password=APP:user=APP:serverName=localhost:databaseName=Assignment3DB:connectionAttributes=;create\=true Assignment3Pool
+asadmin ping-connection-pool Assignment3Pool
+asadmin create-jdbc-resource --connectionpoolid Assignment3Pool jdbc/Assignment3DS

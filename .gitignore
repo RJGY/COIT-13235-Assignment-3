@@ -24,3 +24,6 @@ hs_err_pid*
 /Assignment2Persistence/build/
 /Assignment2Persistence/dist/
 /Assignment2Persistence/nbproject/private/
+/Assignment3EJB/nbproject/private/
+/Assignment3EJB/dist/
+/Assignment3EJB/build/

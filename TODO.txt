@@ -1,0 +1,6 @@
+TODO
+1. Turn simple java app into java EJB.
+2. Add functionality.
+3. Join the two.
+
+add more here later if need be
