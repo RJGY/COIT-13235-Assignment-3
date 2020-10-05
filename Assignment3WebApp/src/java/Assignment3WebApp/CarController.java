@@ -23,6 +23,7 @@ public class CarController {
     // Attributes             
     @EJB
     private CarEJB bookEJB;
+    // TODO - create getters and setters for this.
     private List<Car> allCarList = new ArrayList<Car>();
     private NewCar newCar = new NewCar();
     private List<NewCar> newCarList = new ArrayList<NewCar>();

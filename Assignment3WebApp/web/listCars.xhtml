@@ -12,44 +12,44 @@
     <h:dataTable value="#{carController.allCarList}" var="car" border="1">
         <h:column>
             <f:facet name="header">
-                <h:outputText value="ISBN"/>
+                <h:outputText value="Brand"/>
             </f:facet>
             <h:outputText value="#{car.brand}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Title"/>
+                <h:outputText value="Model"/>
             </f:facet>
-            <h:outputText value="#{bk.title}"/>
+            <h:outputText value="#{car.model}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Price"/>
+                <h:outputText value="Drive Type"/>
             </f:facet>
-            <h:outputText value="#{bk.price}"/>
+            <h:outputText value="#{car.driveType}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Description"/>
+                <h:outputText value="Colour"/>
             </f:facet>
-            <h:outputText value="#{bk.description}"/>
+            <h:outputText value="#{car.colour}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Number Of Pages"/>
+                <h:outputText value="Transmission Type"/>
             </f:facet>
-            <h:outputText value="#{bk.nbOfPage}"/>
+            <h:outputText value="#{car.transmissionType}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">
-                <h:outputText value="Illustrations"/>
+                <h:outputText value="Engine Type"/>
             </f:facet>
-            <h:outputText value="#{bk.illustrations}"/>
+            <h:outputText value="#{car.engineType}"/>
         </h:column>
 
     </h:dataTable>
