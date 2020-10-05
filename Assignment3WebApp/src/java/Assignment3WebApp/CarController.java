@@ -23,6 +23,7 @@ public class CarController {
     // Attributes             
     @EJB
     private CarEJB bookEJB;
+    private List<Car> allCarList = new ArrayList<Car>();
     private NewCar newCar = new NewCar();
     private List<NewCar> newCarList = new ArrayList<NewCar>();
     private UsedCar usedCar = new UsedCar();
@@ -32,13 +33,13 @@ public class CarController {
     public String doCreateNewCar() {
         newCar = bookEJB.createNewCar(newCar);
         newCarList = bookEJB.findAllNewCars();
-        return "listNewCars.xhtml";
+        return "listAllCars.xhtml";
     }
 
     public String doCreateUsedCar() {
         usedCar = bookEJB.createUsedCar(usedCar);
         usedCarList = bookEJB.findAllUsedCars();
-        return "listUsedCars.xhtml";
+        return "listAllCars.xhtml";
     }
     
     //Getters & Setters         
