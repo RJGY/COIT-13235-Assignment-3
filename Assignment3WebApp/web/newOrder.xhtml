@@ -19,27 +19,33 @@
             <h:inputTextarea value="#{orderController.order.orderDescription}" cols="20" rows="5"/>
             
             <h:outputLabel value=""/>
-            <h:inputHidden value="#{orderController.order.timeCreated}" />
+            <h:inputHidden value="#{orderController.order.timeCreated}" >
+                <f:convertDateTime pattern="MM/dd/yy"/>
+            </h:inputHidden>
             
             <h:outputLabel value="Car : "/>
-            <h:selectOneMenu>
-                <ui:repeat value="#{carController.newCarList}" var="car">
-                    <f:selectItem itemLabel="#{car.brand} #{car.model}" value="#{car}"/>
-                </ui:repeat>
-            </h:selectOneMenu>
+            <h:selectOneListbox>
+                <f:selectItems value="#{carController.newCarList}"
+                 var="car"
+                 itemValue="#{car}"
+                 itemLabel="#{car.brand} #{car.model}"
+                 noSelectionValue="#{carController.newCarList[0]}"/>
+            </h:selectOneListbox>
             
             <h:outputLabel value="Customer : "/>
-            <h:selectOneMenu>
-                <ui:repeat value="#{customerController.customerList}" var="customer">
-                    <f:selectItem itemLabel="#{customer.firstName} #{customer.lastName}" value="#{customer}"/>
-                </ui:repeat>
-            </h:selectOneMenu>
+            <h:selectOneListbox converter="customerConverter">
+                <f:selectItems value="#{customerController.customerList}"
+                 var="customer"
+                 itemValue="#{customer}"
+                 itemLabel="#{customer.firstName} #{customer.lastName}"
+                 noSelectionValue="#{customerController.customerList[0]}"/>
+            </h:selectOneListbox>
             
             <h:outputLabel value="Quantity : "/>
             <h:inputText value="#{orderController.order.quantity}"/>
             
         </h:panelGrid>
-        <h:commandButton value="Create an Order" action="#{orderController.doCreateNewOrder}"/>
+        <h:commandButton value="Create Order" action="#{orderController.doCreateNewOrder}"/>
 
     </h:form>
 

@@ -28,9 +28,6 @@ public class OrderController {
     private CarEJB carEJB;
     private AnOrder order;
     private List<AnOrder> orderList = new ArrayList<AnOrder>();
-    /**
-     * Creates a new instance of OrderController
-     */
     
     // Public Methods
     @PostConstruct
@@ -69,6 +66,7 @@ public class OrderController {
     }
 
     public List<AnOrder> getOrderList() {
+        orderList = orderEJB.findAllOrders();
         return orderList;
     }
 

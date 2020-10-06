@@ -58,6 +58,7 @@ public class CustomerController {
     }
 
     public List<Customer> getCustomerList() {
+        customerList = customerEJB.findAllCustomers();
         return customerList;
     }
 

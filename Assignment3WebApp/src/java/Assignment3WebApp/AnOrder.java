@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "customer_orders")
 @NamedQueries({
-    @NamedQuery(name = "findAllOrders", query = "SELECT o FROM AnOrder o"),
+    @NamedQuery(name = "Order.findAllOrders", query = "SELECT o FROM AnOrder o"),
 })
 public class AnOrder implements Serializable {
 
