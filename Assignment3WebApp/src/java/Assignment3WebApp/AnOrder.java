@@ -28,7 +28,7 @@ public class AnOrder implements Serializable {
     private String orderDescription;
     
     @Temporal(TemporalType.TIME)
-    private Date timeCreated;
+    private Date timeCreated = new Date();
     
     @JoinColumn(name = "CAR_ID", referencedColumnName = "ID")
     @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
@@ -37,6 +37,8 @@ public class AnOrder implements Serializable {
     @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
     @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Customer customer;
+    
+    private Integer quantity;
    
     public Long getId() {
         return id;
@@ -79,10 +81,18 @@ public class AnOrder implements Serializable {
     {
         this.customer = customer;
     }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
     
     @Override
     public String toString() {
-        return "ass2.AnOrder[ id=" + id + " orderDescription" + orderDescription + " timeCreated=" + getTimeCreated() + " car=" + getCar() + " customer=" + customer.getFirstName() + " " + customer.getLastName() + " ]\n";
+        return "AnOrder[ id=" + id + " orderDescription" + orderDescription + " timeCreated=" + getTimeCreated() + " car=" + getCar() + " customer=" + customer.getFirstName() + " " + customer.getLastName() + " quantity=" + getQuantity() + " ]\n";
     }
     
 }

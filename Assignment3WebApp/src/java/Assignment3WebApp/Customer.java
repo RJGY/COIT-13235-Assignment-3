@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c"),
-    @NamedQuery(name = "findCustomerByName", query = "SELECT c FROM Customer c WHERE c.firstName = :firstName AND c.lastName = :lastName"),
+    @NamedQuery(name = "Customer.findAllCustomers", query = "SELECT c FROM Customer c"),
+    @NamedQuery(name = "Customer.findCustomerByName", query = "SELECT c FROM Customer c WHERE c.firstName = :firstName AND c.lastName = :lastName"),
 })
 public class Customer implements Serializable {
 
@@ -30,7 +30,7 @@ public class Customer implements Serializable {
     private String mobile;
     private String email;
     
-    @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID", nullable=true)
     @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private List<AnOrder> orders = new ArrayList<AnOrder>();
 
@@ -92,7 +92,7 @@ public class Customer implements Serializable {
     
     @Override
     public String toString() {
-        return "ass2.Customer[ id=" + id + " firstName=" + firstName + " lastName=" + lastName + " officePhone=" + officePhone + " mobile=" + mobile + " email=" + email + " orders=" + orders + " ]\n";
+        return "Customer[ id=" + id + " firstName=" + firstName + " lastName=" + lastName + " officePhone=" + officePhone + " mobile=" + mobile + " email=" + email + " orders=" + orders + " ]\n";
     }
 
 }

@@ -4,12 +4,12 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-    <title>List of all Cars</title>
+    <title>List of all Used Cars</title>
 </h:head>
 <h:body>
-    <h1>List of all Cars</h1>
+    <h1>List of all Used Cars</h1>
     <hr/>
-    <h:dataTable value="#{carController.allCarList}" var="car" border="1">
+    <h:dataTable value="#{carController.usedCarList}" var="car" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="ID"/>
@@ -92,6 +92,41 @@
                 <h:outputText value="Price"/>
             </f:facet>
             <h:outputText value="#{car.price}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Odometer"/>
+            </f:facet>
+            <h:outputText value="#{car.odometer}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Rego Number"/>
+            </f:facet>
+            <h:outputText value="#{car.regoNumber}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Rego Expiry"/>
+            </f:facet>
+            <h:outputText value="#{car.regoExpiry}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Service History"/>
+            </f:facet>
+            <h:outputText value="#{car.serviceHistory}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Vehicle Identification Number"/>
+            </f:facet>
+            <h:outputText value="#{car.vehicleIN}"/>
         </h:column>
 
     </h:dataTable>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Create a Customer</title>
+</h:head>
+<h:body>
+    <h1>Create a Customer</h1>
+    <hr/>
+    <h:form>
+        <h:panelGrid columns="2" >
+            
+            <h:outputLabel value="First Name : "/>
+            <h:inputText value="#{customerController.customer.firstName}"/>
+            
+            <h:outputLabel value="Last Name : "/>
+            <h:inputText value="#{customerController.customer.lastName}"/>
+            
+            <h:outputLabel value="Office Phone : "/>
+            <h:inputText value="#{customerController.customer.officePhone}"/>
+            
+            <h:outputLabel value="Mobile : "/>
+            <h:inputText value="#{customerController.customer.mobile}"/>
+            
+            <h:outputLabel value="Email : "/>
+            <h:inputText value="#{customerController.customer.email}"/>
+            
+        </h:panelGrid>
+        <h:commandButton value="Create Customer" action="#{customerController.doCreateNewCustomer}"/>
+
+    </h:form>
+
+</h:body>
+</html>

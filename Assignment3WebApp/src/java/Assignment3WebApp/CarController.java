@@ -23,14 +23,21 @@ public class CarController {
     // Attributes             
     @EJB
     private CarEJB carEJB;
-    // TODO - create getters and setters for this.
     private List<Car> allCarList = new ArrayList<Car>();
     private NewCar newCar = new NewCar();
     private List<NewCar> newCarList = new ArrayList<NewCar>();
     private UsedCar usedCar = new UsedCar();
     private List<UsedCar> usedCarList = new ArrayList<UsedCar>();
 
-    // Public Methods           
+    // Public Methods        
+    public String doNewCar() {
+        return "newCar.xhtml";
+    }
+    
+    public String doUsedCar() {
+        return "usedCar.xhtml";
+    }
+    
     public String doCreateNewCar() {
         newCar = carEJB.createNewCar(newCar);
         newCarList = carEJB.findAllNewCars();
@@ -48,6 +55,7 @@ public class CarController {
     //Getters & Setters     
     public List<Car> getAllCarList()
     {
+        allCarList = carEJB.findAllCars();
         return allCarList;
     }
     
@@ -67,20 +75,26 @@ public class CarController {
         return usedCar;
     }
     
-    public void setUsedCar() {
+    public void setUsedCar(UsedCar usedCar) {
         this.usedCar = usedCar;
     }
 
     public List<NewCar> getNewCarList() {
+        newCarList = carEJB.findAllNewCars();
         return newCarList;
     }
 
-    public void setBookList(List<NewCar> newCarList) {
+    public void setNewCarList(List<NewCar> newCarList) {
         this.newCarList = newCarList;
     }
     
     
     public List<UsedCar> getUsedCarList() {
+        usedCarList = carEJB.findAllUsedCars();
         return usedCarList;
+    }
+    
+    public void setUsedCarList(List<UsedCar> usedCarList) {
+        this.usedCarList = usedCarList;
     }
 }

@@ -23,16 +23,17 @@ public class NewCar extends Car {
     private Boolean warranty;
     private Boolean extendedWarranty;
     private Boolean roadsideAssistance;
+    private Integer nbrOfCars;
     
     public NewCar()
     {
-        this(null,null,null,null,null,null,null,null,null,null,null,false,false,false);
+        this(null,null,null,null,null,null,null,null,null,null,null,false,false,false,null);
     }
     
     public NewCar(String brand, String model, String driveType,
             String colour, String transmissionType, String engineType,
             String fuelType, String licensePlate, Integer nbrOfDoors, Integer nbrOfSeats, Float price,
-            Boolean warranty, Boolean extendedWarranty, Boolean roadsideAssistance)
+            Boolean warranty, Boolean extendedWarranty, Boolean roadsideAssistance, Integer nbrOfCars)
     {
         super(brand,model,driveType,colour,transmissionType,engineType,fuelType,
                 licensePlate,nbrOfDoors,nbrOfSeats,price);
@@ -40,6 +41,7 @@ public class NewCar extends Car {
         this.warranty = warranty;
         this.extendedWarranty = extendedWarranty;
         this.roadsideAssistance = roadsideAssistance;
+        this.nbrOfCars = nbrOfCars;
     }
 
     public Boolean getWarranty() {
@@ -61,10 +63,20 @@ public class NewCar extends Car {
     public Boolean getRoadsideAssistance() {
         return roadsideAssistance;
     }
-
+    
     public void setRoadsideAssistance(Boolean roadsideAssistance) {
         this.roadsideAssistance = roadsideAssistance;
     }
+    
+    public Integer getNbrOfCars() {
+        return nbrOfCars;
+    }
+
+    public void setNbrOfCars(Integer nbrOfCars) {
+        this.nbrOfCars = nbrOfCars;
+    }
+    
+    
 
     @Override
     public String toString() {

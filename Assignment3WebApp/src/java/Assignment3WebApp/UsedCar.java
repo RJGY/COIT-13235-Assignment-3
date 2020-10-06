@@ -13,8 +13,8 @@ import java.util.Date;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery (name = "findAllUsedCars", query = "SELECT u FROM UsedCar u"),
-    @NamedQuery (name = "findUsedCarsWithOdometerUnderParameter", query = "SELECT u FROM UsedCar u WHERE u.odometer < :odometer")
+    @NamedQuery (name = "UsedCar.findAllUsedCars", query = "SELECT u FROM UsedCar u"),
+    @NamedQuery (name = "UsedCar.findUsedCarsWithOdometerUnderParameter", query = "SELECT u FROM UsedCar u WHERE u.odometer < :odometer")
 })
 public class UsedCar extends Car {
 

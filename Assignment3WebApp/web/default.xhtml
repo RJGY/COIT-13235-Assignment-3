@@ -3,11 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head>
-    <meta http-equiv="refresh" content="0; url=newBook.faces"/>
-    <title>Redirecting...</title>
+    <title>Home</title>
     </head>
     <body>
-        Redirecting...
+        <h:link outcome="listCars.xhtml" value="View list of all Cars. "/>
+        <h:link outcome="listNewCars.xhtml" value="View list of all new Cars. "/>
+        <h:link outcome="listUsedCars.xhtml" value="View list of all used Cars. "/>
+        <h:link outcome="listOrders.xhtml" value="View list of all Orders. "/>
+        <h:link outcome="listCustomers.xhtml" value="View list of all Customers. "/>
+        <hr/>
+        <h:link outcome="newCar.xhtml" value="Create a new Car. "/>
+        <h:link outcome="usedCar.xhtml" value="Create a used Car. "/>
+        <h:link outcome="newOrder.xhtml" value="Create an Order. "/>
+        <h:link outcome="newCustomer.xhtml" value="Create a Customer. "/>
     </body>
 </html>
 

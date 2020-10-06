@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="car" required="true"/>
+    <composite:attribute name="style" required="false"/>
+</composite:interface>
+
+<composite:implementation>
+    
+    <tr style="#{cc.attrs.style}">
+        <td>Brand :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.brand}"/>
+        </td>
+    </tr>
+    
+    <tr style="#{cc.attrs.style}">
+        <td>Model :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.model}"/>
+        </td>
+    </tr>
+            
+    <tr style="#{cc.attrs.style}">
+        <td>Drive Type :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.driveType}"/>
+        </td>
+    </tr>
+    
+    <tr style="#{cc.attrs.style}">
+        <td>Colour :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.colour}"/>
+        </td>
+    </tr>
+
+    <tr style="#{cc.attrs.style}">
+        <td>Transmission Type :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.transmissionType}"/>
+        </td>
+    </tr>
+    
+    <tr style="#{cc.attrs.style}">
+        <td>Engine Type :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.engineType}"/>
+        </td>
+    </tr>
+            
+    <tr style="#{cc.attrs.style}">
+        <td>Fuel Type :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.fuelType}"/>
+        </td>
+    </tr>
+
+    <tr style="#{cc.attrs.style}">
+        <td>License Plate :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.licensePlate}"/>
+        </td>
+    </tr>
+            
+    <tr style="#{cc.attrs.style}">
+        <td>Number Of Doors :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.nbrOfDoors}"/>
+        </td>
+    </tr>
+    
+    <tr style="#{cc.attrs.style}">
+        <td>Number of Seats :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.nbrOfSeats}"/>
+        </td>
+    </tr>
+    
+    <tr style="#{cc.attrs.style}">
+        <td>Price :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.car.price}"/>
+        </td>
+    </tr>
+</composite:implementation>
+</html>

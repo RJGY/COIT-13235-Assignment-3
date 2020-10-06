@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress">
+<h:head>
+    <title>Create a Used Car</title>
+</h:head>
+<h:body>
+    <h1>Create a Used Car</h1>
+    <hr/>
+    <h:form>
+        <h:panelGrid columns="2" >
+            
+            <ago:createCar car="#{carController.usedCar}"/>
+            <br/>
+            <h:outputLabel value="Odometer : "/>
+            <h:inputText value="#{carController.usedCar.odometer}"/>
+            
+            <h:outputLabel value="Rego Number: "/>
+            <h:inputText value="#{carController.usedCar.regoNumber}"/>
+            
+            <h:outputLabel value="Rego Expiry : "/>
+            <h:inputText value="#{carController.usedCar.regoExpiry}"/>
+            
+            <h:outputLabel value="Service History: "/>
+            <h:inputTextarea value="#{carController.usedCar.serviceHistory}" cols="20" rows="5"/>
+            
+            <h:outputLabel value="Vehicle Identification Number : "/>
+            <h:inputText value="#{carController.usedCar.vehicleIN}"/>
+        </h:panelGrid>
+        <h:commandButton value="Create a used Car" action="#{carController.doCreateUsedCar}"/>
+
+    </h:form>
+
+</h:body>
+</html>

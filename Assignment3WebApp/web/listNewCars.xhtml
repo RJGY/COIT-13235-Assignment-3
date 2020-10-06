@@ -4,12 +4,12 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-    <title>List of all Cars</title>
+    <title>List of all New Cars</title>
 </h:head>
 <h:body>
-    <h1>List of all Cars</h1>
+    <h1>List of all New Cars</h1>
     <hr/>
-    <h:dataTable value="#{carController.allCarList}" var="car" border="1">
+    <h:dataTable value="#{carController.newCarList}" var="car" border="1">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="ID"/>
@@ -92,6 +92,34 @@
                 <h:outputText value="Price"/>
             </f:facet>
             <h:outputText value="#{car.price}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Warranty"/>
+            </f:facet>
+            <h:outputText value="#{car.warranty}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Extended Warranty"/>
+            </f:facet>
+            <h:outputText value="#{car.extendedWarranty}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Roadside Assistance"/>
+            </f:facet>
+            <h:outputText value="#{car.roadsideAssistance}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Number of Cars"/>
+            </f:facet>
+            <h:outputText value="#{car.nbrOfCars}"/>
         </h:column>
 
     </h:dataTable>
