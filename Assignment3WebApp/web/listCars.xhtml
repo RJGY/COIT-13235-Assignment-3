@@ -12,6 +12,13 @@
     <h:dataTable value="#{carController.allCarList}" var="car" border="1">
         <h:column>
             <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{car.id}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
                 <h:outputText value="Brand"/>
             </f:facet>
             <h:outputText value="#{car.brand}"/>
@@ -51,10 +58,45 @@
             </f:facet>
             <h:outputText value="#{car.engineType}"/>
         </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Fuel Type"/>
+            </f:facet>
+            <h:outputText value="#{car.fuelType}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="License Plate"/>
+            </f:facet>
+            <h:outputText value="#{car.licensePlate}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Number of Doors"/>
+            </f:facet>
+            <h:outputText value="#{car.nbrOfDoors}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Number of Seats"/>
+            </f:facet>
+            <h:outputText value="#{car.nbrOfSeats}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Price"/>
+            </f:facet>
+            <h:outputText value="#{car.price}"/>
+        </h:column>
 
     </h:dataTable>
     <h:form>
-        <h:link outcome="newBook.xhtml" value="Create a new book"/>
+        <h:link outcome="newCar.xhtml" value="Create a new Car."/>
     </h:form>
     <hr/>
     <i>The First JSF Project</i>

@@ -28,3 +28,5 @@ hs_err_pid*
 /Assignment3EJB/dist/
 /Assignment3EJB/build/
 /Assignment3WebApp/nbproject/private/
+/Assignment3WebApp/build/
+/Assignment3WebApp/dist/

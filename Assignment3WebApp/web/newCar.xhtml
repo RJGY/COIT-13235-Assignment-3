@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Create a new Car</title>
+</h:head>
+<h:body>
+    <h1>Create a new Car</h1>
+    <hr/>
+    <h:form>
+        <h:panelGrid columns="2" >
+            <h:outputLabel value="Brand :"/>
+            <h:inputText value="#{carController.newCar.brand}"/>
+
+            <h:outputLabel value="Model : "/>
+            <h:inputText value="#{carController.newCar.model}"/>
+
+            <h:outputLabel value="Drive Type : "/>
+            <h:inputText value="#{carController.newCar.driveType}"/>
+
+            <h:outputLabel value="Colour : "/>
+            <h:inputText value="#{carController.newCar.colour}"/>
+
+            <h:outputLabel value="Transmission Type : "/>
+            <h:inputText value="#{carController.newCar.transmissionType}"/>
+            
+            <h:outputLabel value="Engine Type : "/>
+            <h:inputText value="#{carController.newCar.engineType}"/>
+
+            <h:outputLabel value="Fuel Type : "/>
+            <h:inputText value="#{carController.newCar.fuelType}"/>
+            
+            <h:outputLabel value="License Plate : "/>
+            <h:inputText value="#{carController.newCar.licensePlate}"/>
+            
+            <h:outputLabel value="Number of Doors : "/>
+            <h:inputText value="#{carController.newCar.nbrOfDoors}"/>
+            
+            <h:outputLabel value="Number of Seats: "/>
+            <h:inputText value="#{carController.newCar.nbrOfSeats}"/>
+            
+            <h:outputLabel value="Price : "/>
+            <h:inputText value="#{carController.newCar.price}"/>
+            
+            <h:outputLabel value="Warranty : "/>
+            <h:selectBooleanCheckbox value="#{carController.newCar.warranty}"/>
+            
+            <h:outputLabel value="Extended Warranty: "/>
+            <h:selectBooleanCheckbox value="#{carController.newCar.extendedWarranty}"/>
+            
+            <h:outputLabel value="Roadside Assistance : "/>
+            <h:selectBooleanCheckbox value="#{carController.newCar.roadsideAssistance}"/>
+        </h:panelGrid>
+        <h:commandButton value="Create a book" action="#{carController.doCreateNewCar}"/>
+
+    </h:form>
+    <hr/>
+
+</h:body>
+</html>

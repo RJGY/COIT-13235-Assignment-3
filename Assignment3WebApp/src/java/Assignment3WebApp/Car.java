@@ -15,8 +15,8 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries({
-    @NamedQuery (name = "findAllCars", query = "SELECT c FROM Car c"),
-    @NamedQuery (name = "findCarByLicensePlate", query = "SELECT c From Car c "
+    @NamedQuery (name = "Car.findAllCars", query = "SELECT c FROM Car c"),
+    @NamedQuery (name = "Car.findCarByLicensePlate", query = "SELECT c From Car c "
             + "WHERE c.licensePlate = :licensePlate")
 })
 public class Car implements Serializable {
@@ -164,7 +164,7 @@ public class Car implements Serializable {
 
     @Override
     public String toString() {
-        return "ass2.Car[ id=" + id + " brand=" + brand + " model=" + model + " driveType=" + driveType + " colour=" + colour + " transmissionType=" + transmissionType + " engineType=" +  engineType + " fuelType=" + fuelType + " nbrOfDoors=" + nbrOfDoors + " nbrOfSeats=" + nbrOfSeats + " price=" + price + " ]";
+        return "Car[ id=" + id + " brand=" + brand + " model=" + model + " driveType=" + driveType + " colour=" + colour + " transmissionType=" + transmissionType + " engineType=" +  engineType + " fuelType=" + fuelType + " nbrOfDoors=" + nbrOfDoors + " nbrOfSeats=" + nbrOfSeats + " price=" + price + " ]";
     }
     
 }

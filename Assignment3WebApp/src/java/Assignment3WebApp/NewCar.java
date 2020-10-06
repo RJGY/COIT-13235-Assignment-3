@@ -15,8 +15,8 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery (name = "findAllNewCars", query = "SELECT n FROM NewCar n"),
-    @NamedQuery (name = "findAllCarsWithWarranty", query = "SELECT n from NewCar n WHERE n.warranty = true")
+    @NamedQuery (name = "NewCar.findAllNewCars", query = "SELECT n FROM NewCar n"),
+    @NamedQuery (name = "NewCar.findAllCarsWithWarranty", query = "SELECT n from NewCar n WHERE n.warranty = true")
 })
 public class NewCar extends Car {
 
@@ -26,7 +26,7 @@ public class NewCar extends Car {
     
     public NewCar()
     {
-        this(null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+        this(null,null,null,null,null,null,null,null,null,null,null,false,false,false);
     }
     
     public NewCar(String brand, String model, String driveType,
@@ -42,7 +42,7 @@ public class NewCar extends Car {
         this.roadsideAssistance = roadsideAssistance;
     }
 
-    public Boolean isWarranty() {
+    public Boolean getWarranty() {
         return warranty;
     }
 
@@ -50,7 +50,7 @@ public class NewCar extends Car {
         this.warranty = warranty;
     }
 
-    public Boolean isExtendedWarranty() {
+    public Boolean getExtendedWarranty() {
         return extendedWarranty;
     }
 
@@ -58,7 +58,7 @@ public class NewCar extends Car {
         this.extendedWarranty = extendedWarranty;
     }
 
-    public Boolean isRoadsideAssistance() {
+    public Boolean getRoadsideAssistance() {
         return roadsideAssistance;
     }
 
@@ -68,7 +68,7 @@ public class NewCar extends Car {
 
     @Override
     public String toString() {
-        return super.toString() + "\nass2.NewCar[ warranty=" + warranty + " extendedWarranty=" + extendedWarranty + " roadsideAssistance=" + roadsideAssistance + " ]\n";
+        return super.toString() + "\nNewCar[ warranty=" + warranty + " extendedWarranty=" + extendedWarranty + " roadsideAssistance=" + roadsideAssistance + " ]\n";
     }
     
 }
