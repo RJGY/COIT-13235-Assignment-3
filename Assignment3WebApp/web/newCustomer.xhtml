@@ -33,6 +33,11 @@
         <h:commandButton value="Create Customer" action="#{customerController.doCreateNewCustomer}"/>
 
     </h:form>
+    <hr/>
+    <h:form>
+        <h:link outcome="listCustomers.xhtml" value="View all Customers"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
 
 </h:body>
 </html>

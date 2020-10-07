@@ -24,7 +24,7 @@
             </h:inputHidden>
             
             <h:outputLabel value="Car : "/>
-            <h:selectOneListbox>
+            <h:selectOneListbox converter="carConverter">
                 <f:selectItems value="#{carController.newCarList}"
                  var="car"
                  itemValue="#{car}"
@@ -48,6 +48,12 @@
         <h:commandButton value="Create Order" action="#{orderController.doCreateNewOrder}"/>
 
     </h:form>
-
+    <hr/>
+    <h:form>
+        <h:link outcome="usedOrder.xhtml" value="Create an Order for a Used Car"/> |
+        <h:link outcome="listOrders.xhtml" value="View all Orders"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
+    
 </h:body>
 </html>

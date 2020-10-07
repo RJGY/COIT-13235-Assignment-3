@@ -51,10 +51,13 @@
             </f:facet>
             <h:outputText value="#{order.quantity}"/>
         </h:column>
-
+        
+        
     </h:dataTable>
+    <hr/>
     <h:form>
-        <h:link outcome="newCar.xhtml" value="Create a new Car."/>
+        <h:link outcome="newOrder.xhtml" value="Create a new Order"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
     </h:form>
 </h:body>
 </html>

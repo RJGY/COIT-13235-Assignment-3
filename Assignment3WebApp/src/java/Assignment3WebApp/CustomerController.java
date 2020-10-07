@@ -42,8 +42,8 @@ public class CustomerController {
     }
     
     public String doCreateNewCustomer() {
-        setCustomer(customerEJB.createCustomer(getCustomer()));
-        setCustomerList(customerEJB.findAllCustomers());
+        customer = customerEJB.createCustomer(customer);
+        customerList = customerEJB.findAllCustomers();
         return "listCustomers.xhtml";
     }
     

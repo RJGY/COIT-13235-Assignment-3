@@ -38,6 +38,18 @@ public class CarController {
         return "usedCar.xhtml";
     }
     
+    public String carType(Car car) {
+        if (car instanceof NewCar) {
+            return "New Car";
+        }
+        else if (car instanceof UsedCar) {
+            return "Used Car";
+        }
+        else {
+            return "car";
+        }
+    }
+    
     public String doCreateNewCar() {
         newCar = carEJB.createNewCar(newCar);
         newCarList = carEJB.findAllNewCars();

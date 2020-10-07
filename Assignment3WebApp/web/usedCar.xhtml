@@ -32,6 +32,12 @@
         <h:commandButton value="Create Used Car" action="#{carController.doCreateUsedCar}"/>
 
     </h:form>
+    <hr/>
+    <h:form>
+        <h:link outcome="listUsedCars.xhtml" value="View all Used Cars"/> |
+        <h:link outcome="newCar.xhtml" value="Create a New Car"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
 
 </h:body>
 </html>

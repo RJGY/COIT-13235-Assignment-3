@@ -11,7 +11,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.annotation.PostConstruct;
+
 
 /**
  *
@@ -26,6 +28,8 @@ public class OrderController {
     private OrderEJB orderEJB;
     @EJB
     private CarEJB carEJB;
+    @EJB
+    private CustomerEJB customerEJB;
     private AnOrder order;
     private List<AnOrder> orderList = new ArrayList<AnOrder>();
     
@@ -39,13 +43,24 @@ public class OrderController {
         return "newOrder.xhtml";
     }
     
+    
     public String doCreateNewOrder() {
-        setOrder(orderEJB.createOrder(getOrder()));
-        setOrderList(orderEJB.findAllOrders());
+        if (order.getQuantity() == null || order.getQuantity() == 0)
+        {
+            order.setQuantity(1);
+        }
+        order.setTimeCreated(new Date());
+        order = orderEJB.createOrder(order);
+        orderList = orderEJB.findAllOrders();
+        /*
+        Customer customer = customerEJB.findCustomerById(order.getCustomer().getId());
+        customer.getOrders().add(order);
+        customerEJB.updateCustomer(customer);
+        
         if (order.getCar() instanceof NewCar)
         {
             NewCar newCar = (NewCar)order.getCar();
-            if (newCar.getNbrOfCars() == 1)
+            if (newCar.getNbrOfCars() - order.getQuantity() < 0)
             {
                 carEJB.deleteCar(newCar);
             }
@@ -54,6 +69,7 @@ public class OrderController {
                 newCar.setNbrOfCars(newCar.getNbrOfCars()-1);
             }
         }
+        */
         return "listOrders.xhtml";
     }
 
@@ -73,6 +89,5 @@ public class OrderController {
     public void setOrderList(List<AnOrder> orderList) {
         this.orderList = orderList;
     }
-    
     
 }

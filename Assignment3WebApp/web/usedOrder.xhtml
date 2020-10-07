@@ -38,6 +38,11 @@
         <h:commandButton value="Create Order" action="#{orderController.doCreateNewOrder}"/>
 
     </h:form>
-
+    <hr/>
+    <h:form>
+        <h:link outcome="newOrder.xhtml" value="Create an Order for a new Car"/> |
+        <h:link outcome="listOrders.xhtml" value="View All Orders"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
 </h:body>
 </html>

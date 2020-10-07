@@ -93,11 +93,23 @@
             </f:facet>
             <h:outputText value="#{car.price}"/>
         </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Type"/>
+            </f:facet>
+            <h:outputText value="#{carController.carType(car)}"/>
+        </h:column>
 
     </h:dataTable>
+    <hr/>
     <h:form>
-        <h:link outcome="newCar.xhtml" value="Create a new Car."/>
+        <h:link outcome="listNewCars.xhtml" value="View New Cars"/> | 
+        <h:link outcome="listUsedCars.xhtml" value="View Used Cars"/> | 
+        <h:link outcome="newCar.xhtml" value="Create a new Car"/> | 
+        <h:link outcome="default.xhtml" value="Home"/>
     </h:form>
+
 </h:body>
 </html>
 

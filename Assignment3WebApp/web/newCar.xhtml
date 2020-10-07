@@ -22,10 +22,18 @@
             
             <h:outputLabel value="Roadside Assistance : "/>
             <h:selectBooleanCheckbox value="#{carController.newCar.roadsideAssistance}"/>
+            
+            <h:outputLabel value="Number of Cars : "/>
+            <h:inputText value="#{carController.newCar.nbrOfCars}"/>
         </h:panelGrid>
         <h:commandButton value="Create Car" action="#{carController.doCreateNewCar}"/>
 
     </h:form>
-
+    <hr/>
+    <h:form>
+        <h:link outcome="listCars.xhtml" value="View all Cars"/> | 
+        <h:link outcome="listNewCars.xhtml" value="View new Cars"/> | 
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
 </h:body>
 </html>
