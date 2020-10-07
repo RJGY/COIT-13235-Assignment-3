@@ -5,8 +5,6 @@
  */
 package Assignment3WebApp;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -28,7 +26,7 @@ public class CarConverter implements Converter {
         }
         // Eg. Start with car.toString() which is Car[ id=1 brand=Honda model=Accord Euro ]
         // Split string into multiple parts of toString. 
-        // We are left with id=123
+        // We are left with id=1
         String regex = value.split(" ")[1];
         
         // Substring to remove "id=" from the string.
