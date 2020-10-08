@@ -58,7 +58,9 @@
             <f:facet name="header">
                 <h:outputText value="Car"/>
             </f:facet>
-            <h:outputText value="#{order.car.brand} #{order.car.model}"/>
+            <h:form>
+                <h:commandButton value="#{order.car.brand} #{order.car.model}" action="#{carController.doFindCarById(order.car.id)}"/>
+            </h:form>
         </h:column>
 
         <h:column>

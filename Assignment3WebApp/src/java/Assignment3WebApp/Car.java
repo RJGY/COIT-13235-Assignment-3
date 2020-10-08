@@ -14,6 +14,7 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+// Queries
 @NamedQueries({
     @NamedQuery (name = "Car.findAllCars", query = "SELECT c FROM Car c"),
     @NamedQuery (name = "Car.findCarByLicensePlate", query = "SELECT c FROM Car c "
@@ -50,7 +51,8 @@ public class Car implements Serializable {
     {
         this(null,null,null,null,null,null,null,null,null,null,null);
     }
-
+    
+    // Constructor
     public Car(String brand, String model, String driveType,
             String colour, String transmissionType, String engineType,
             String fuelType, String licensePlate, Integer nbrOfDoors, Integer nbrOfSeats, Float price)
@@ -68,6 +70,7 @@ public class Car implements Serializable {
         this.price = price;
     }
     
+    // Getters and Setters
     public Long getId() {
         return id;
     }

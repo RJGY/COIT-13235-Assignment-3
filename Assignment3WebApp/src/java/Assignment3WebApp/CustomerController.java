@@ -38,6 +38,7 @@ public class CustomerController {
         customer = new Customer();
     }
     
+    // returns number of orders from the customer.
     public int numberOfOrders(Customer customer) {
         return customer.getOrders().size();
     }
@@ -46,31 +47,55 @@ public class CustomerController {
         return "newCustomer.xhtml";
     }
     
+    // Creates a customer and adds it to the local variables.
     public String doCreateNewCustomer() {
         customer = customerEJB.createCustomer(customer);
         customerList = customerEJB.findAllCustomers();
         return "listCustomers.xhtml";
     }
     
+    // Finds customer from local id.
     public String doFindCustomerById() {
         FacesContext context = FacesContext.getCurrentInstance();
+        // try incase null or sql errors.
         try {
             customer = customerEJB.findCustomerById(queryId);
         } catch (Exception e) {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", e.getMessage()));
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found. id: " + queryId, e.getMessage()));
             return null;
         }
         
         if (customer == null) {
             
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", ""));
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found. id: " + queryId, ""));
             return null;
         }
         return "viewCustomer.xhtml";
     }
     
+    // Finds customer from parameterised id.
+    public String doFindCustomerById(Long id) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        // try incase null or sql errors.
+        try {
+            customer = customerEJB.findCustomerById(id);
+        } catch (Exception e) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found. id: " + id, e.getMessage()));
+            return null;
+        }
+        
+        if (customer == null) {
+            
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found. id: " + id, ""));
+            return null;
+        }
+        return "viewCustomer.xhtml";
+    }
+    
+    // Finds customer from local names.
     public String doFindCustomerByName() {
         FacesContext context = FacesContext.getCurrentInstance();
+        // try incase null or sql errors.
         try {
             customer = customerEJB.findCustomerByName(queryFirstName, queryLastName);
         } catch (Exception e) {

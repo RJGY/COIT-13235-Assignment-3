@@ -35,14 +35,18 @@
             <f:facet name="header">
                 <h:outputText value="Car"/>
             </f:facet>
-            <h:outputText value="#{order.car.brand} #{order.car.model}"/>
+            <h:form>
+                <h:commandButton value="#{order.car.brand} #{order.car.model}" action="#{carController.doFindCarById(order.car.id)}"/>
+            </h:form>
         </h:column>
 
         <h:column>
             <f:facet name="header">
                 <h:outputText value="Customer"/>
             </f:facet>
-            <h:outputText value="#{order.customer.firstName} #{order.customer.lastName}"/>
+            <h:form>
+                <h:commandButton value="#{order.customer.firstName} #{order.customer.lastName}" action="#{customerController.doFindCustomerById(order.customer.id)}"/>
+            </h:form>
         </h:column>
 
         <h:column>
