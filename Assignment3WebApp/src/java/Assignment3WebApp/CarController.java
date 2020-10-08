@@ -45,6 +45,7 @@ public class CarController {
         return "usedCar.xhtml";
     }
     
+    // Returns a string of the type of car.
     public String carType(Car car) {
         if (car instanceof NewCar) {
             return "New Car";
@@ -57,13 +58,17 @@ public class CarController {
         }
     }
     
+    // Creates a car from local variables
+    // Adds car to local lists
     public String doCreateNewCar() {
         newCar = carEJB.createNewCar(newCar);
         newCarList = carEJB.findAllNewCars();
         allCarList = carEJB.findAllCars();
         return "listCars.xhtml";
     }
-
+    
+    // Creates a car from local variables
+    // Adds car to local lists
     public String doCreateUsedCar() {
         usedCar.setSold(Boolean.FALSE);
         usedCar = carEJB.createUsedCar(usedCar);
@@ -72,6 +77,7 @@ public class CarController {
         return "listCars.xhtml";
     }
     
+    // Find car by id from local variables.
     public String doFindCarById() {
         FacesContext context = FacesContext.getCurrentInstance();
         try {
@@ -96,6 +102,33 @@ public class CarController {
         }
     }
     
+    // Function to find car with parameterised id.
+    public String doFindCarById(Long id) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        try {
+            resultCar = carEJB.findCarById(id);
+        } catch (Exception e) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", e.getMessage()));
+            return null;
+        }
+        
+        if (resultCar == null) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", ""));
+            return null;
+        }
+        
+        if (resultCar instanceof NewCar) {
+            resultNewCar = (NewCar)carEJB.findCarById(id);
+            return "viewNewCar.xhtml";
+        }
+        else {
+            resultUsedCar = (UsedCar)carEJB.findCarById(id);
+            return "viewUsedCar.xhtml";
+        }
+    }
+    
+    
+    // Function to find car with by license plate.
     public String doFindCarByLicensePlate() {
         FacesContext context = FacesContext.getCurrentInstance();
         try {

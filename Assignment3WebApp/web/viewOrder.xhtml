@@ -20,13 +20,15 @@
     <h:outputLabel value="#{orderController.order.timeCreated}"/>
     <br/>
     
-    <h:outputLabel value="Car : "/>
-    <h:outputLabel value="#{carController.carType(orderController.order.car)}: #{orderController.order.car.brand} #{orderController.order.car.model}"/>
-    <br/>
-        
-    <h:outputLabel value="Customer : "/>
-    <h:outputLabel value="#{orderController.order.customer.firstName} #{orderController.order.customer.lastName}"/>
-    <br/>
+    <h:outputText value="Car"/>
+    <h:form>
+        <h:commandButton value="#{orderController.order.car.brand} #{orderController.order.car.model}" action="#{carController.doFindCarById(orderController.order.car.id)}"/>
+    </h:form>
+
+    <h:outputText value="Customer"/>
+    <h:form>
+        <h:commandButton value="#{orderController.order.customer.firstName} #{orderController.order.customer.lastName}" action="#{customerController.doFindCustomerById(orderController.order.customer.id)}"/>
+    </h:form>
     
     <h:outputLabel value="Quantity : "/>
     <h:outputLabel value="#{orderController.order.quantity}"/>

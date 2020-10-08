@@ -44,8 +44,10 @@ public class OrderController {
         order = new AnOrder();
     }
     
+    // Find order by local id.
     public String doFindOrderById() {
         FacesContext context = FacesContext.getCurrentInstance();
+        // try incase null or sql error.
         try {
             order = orderEJB.findOrderById(queryID);
         } catch (Exception e) {
@@ -60,6 +62,26 @@ public class OrderController {
         }
         return "viewOrder.xhtml";
     }
+    
+    // Find order by parameterised id.
+    public String doFindOrderById(Long id) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        // try incase null or sql error.
+        try {
+            order = orderEJB.findOrderById(id);
+        } catch (Exception e) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", e.getMessage()));
+            return null;
+        }
+        
+        if (order == null) {
+            
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", ""));
+            return null;
+        }
+        return "viewOrder.xhtml";
+    }
+    
     
     public String doCreateNewOrder() {
         // Debug messager.
