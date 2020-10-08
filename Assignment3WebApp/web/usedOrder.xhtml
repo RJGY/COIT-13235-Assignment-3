@@ -16,23 +16,30 @@
         <h:panelGrid columns="2" >
             
             <h:outputLabel value="Order Description : "/>
-            <h:inputTextarea value="#{orderController.order.orderDescription}" cols="20" rows="5"/>
+            <h:inputTextarea value="#{orderController.order.orderDescription}" cols="20" rows="5" required="true" requiredMessage="Order Description is required"/>
             
-            <h:inputHidden value="#{orderController.order.timeCreated}" />
+            <h:outputLabel value=""/>
+            <h:inputHidden value="#{orderController.order.timeCreated}" >
+                <f:convertDateTime pattern="MM/dd/yy"/>
+            </h:inputHidden>
             
             <h:outputLabel value="Car : "/>
-            <h:selectOneMenu>
-                <ui:repeat value="#{carController.usedCarList}" var="car">
-                    <f:selectItem itemLabel="#{car.brand} #{car.model}" value="#{car}"/>
-                </ui:repeat>
-            </h:selectOneMenu>
+            <h:selectOneListbox value="#{orderController.queryCarID}" required="true" requiredMessage="Car is required">
+                <f:selectItems value="#{carController.usedCarList}"
+                 var="car"
+                 itemValue="#{car.id}"
+                 itemLabel="#{car.brand} #{car.model}"
+                 noSelectionValue="#{carController.usedCarList[0]}"/>
+            </h:selectOneListbox>
             
             <h:outputLabel value="Customer : "/>
-            <h:selectOneMenu>
-                <ui:repeat value="#{customerController.customerList}" var="customer">
-                    <f:selectItem itemLabel="#{customer.firstName} #{customer.lastName}" value="#{customer}"/>
-                </ui:repeat>
-            </h:selectOneMenu>
+            <h:selectOneListbox value="#{orderController.queryCustomerID}" required="true" requiredMessage="Customer is required">
+                <f:selectItems value="#{customerController.customerList}"
+                 var="customer"
+                 itemValue="#{customer.id}"
+                 itemLabel="#{customer.firstName} #{customer.lastName}"
+                 noSelectionValue="#{customerController.customerList[0]}"/>
+            </h:selectOneListbox>
             
         </h:panelGrid>
         <h:commandButton value="Create Order" action="#{orderController.doCreateNewOrder}"/>
@@ -40,9 +47,10 @@
     </h:form>
     <hr/>
     <h:form>
-        <h:link outcome="newOrder.xhtml" value="Create an Order for a new Car"/> |
-        <h:link outcome="listOrders.xhtml" value="View All Orders"/> |
+        <h:link outcome="newOrder.xhtml" value="Create an Order for a New Car"/> |
+        <h:link outcome="listOrders.xhtml" value="View all Orders"/> |
         <h:link outcome="default.xhtml" value="Home"/>
     </h:form>
+    
 </h:body>
 </html>

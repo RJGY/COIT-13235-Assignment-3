@@ -11,7 +11,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -26,6 +28,9 @@ public class CustomerController {
     @EJB
     private CustomerEJB customerEJB;
     private List<Customer> customerList = new ArrayList<Customer>();
+    private Long queryId;
+    private String queryFirstName;
+    private String queryLastName;
     
     // Public Functions
     @PostConstruct
@@ -47,6 +52,39 @@ public class CustomerController {
         return "listCustomers.xhtml";
     }
     
+    public String doFindCustomerById() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        try {
+            customer = customerEJB.findCustomerById(queryId);
+        } catch (Exception e) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", e.getMessage()));
+            return null;
+        }
+        
+        if (customer == null) {
+            
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", ""));
+            return null;
+        }
+        return "viewCustomer.xhtml";
+    }
+    
+    public String doFindCustomerByName() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        try {
+            customer = customerEJB.findCustomerByName(queryFirstName, queryLastName);
+        } catch (Exception e) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", e.getMessage()));
+            return null;
+        }
+        
+        if (customer == null) {
+            
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No Result Found.", ""));
+            return null;
+        }
+        return "viewCustomer.xhtml";
+    }
             
     // Getters and Setters
     public Customer getCustomer() {
@@ -64,6 +102,30 @@ public class CustomerController {
 
     public void setCustomerList(List<Customer> customerList) {
         this.customerList = customerList;
+    }
+
+    public Long getQueryId() {
+        return queryId;
+    }
+
+    public void setQueryId(Long queryId) {
+        this.queryId = queryId;
+    }
+
+    public String getQueryFirstName() {
+        return queryFirstName;
+    }
+
+    public void setQueryFirstName(String queryFirstName) {
+        this.queryFirstName = queryFirstName;
+    }
+
+    public String getQueryLastName() {
+        return queryLastName;
+    }
+
+    public void setQueryLastName(String queryLastName) {
+        this.queryLastName = queryLastName;
     }
     
 }

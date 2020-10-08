@@ -24,6 +24,7 @@ public class UsedCar extends Car {
     private Date regoExpiry;
     private String serviceHistory;
     private String vehicleIN;
+    private Boolean sold;
 
     public Integer getOdometer() {
         return odometer;
@@ -86,6 +87,14 @@ public class UsedCar extends Car {
         this.regoExpiry = regoExpiry;
         this.serviceHistory = serviceHistory;
         this.vehicleIN = vehicleIN;
+    }
+
+    public Boolean getSold() {
+        return sold;
+    }
+
+    public void setSold(Boolean sold) {
+        this.sold = sold;
     }
     
     @Override

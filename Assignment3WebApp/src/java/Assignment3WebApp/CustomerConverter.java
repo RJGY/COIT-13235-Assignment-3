@@ -36,7 +36,8 @@ public class CustomerConverter implements Converter {
         
         // substring to remove "id=" from the string.
         // We are left with 123
-        regex = regex.substring(3);
+        regex = regex.substring(3).trim();
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "CustomerID: " + regex, regex));
         try {
             return customerEJB.findCustomerById(Long.parseLong(regex));
         } catch (NullPointerException e) {

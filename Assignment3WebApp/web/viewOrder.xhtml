@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>View Order</title>
+</h:head>
+<h:body>
+    <h1>View Order # #{orderController.order.id}</h1>
+    <hr/>    
+    
+    <h:outputLabel value="Order Description : "/>
+    <h:outputLabel value="#{orderController.order.orderDescription}"/>
+    <br/>
+    
+    <h:outputLabel value="Time Created : "/>
+    <h:outputLabel value="#{orderController.order.timeCreated}"/>
+    <br/>
+    
+    <h:outputLabel value="Car : "/>
+    <h:outputLabel value="#{carController.carType(orderController.order.car)}: #{orderController.order.car.brand} #{orderController.order.car.model}"/>
+    <br/>
+        
+    <h:outputLabel value="Customer : "/>
+    <h:outputLabel value="#{orderController.order.customer.firstName} #{orderController.order.customer.lastName}"/>
+    <br/>
+    
+    <h:outputLabel value="Quantity : "/>
+    <h:outputLabel value="#{orderController.order.quantity}"/>
+    <br/>
+    
+    <hr/>
+    <h:form>
+        <h:link outcome="searchOrder.xhtml" value="Search for a Order"/> |
+        <h:link outcome="listOrders.xhtml" value="View all Orders"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
+
+</h:body>
+</html>

@@ -31,7 +31,8 @@ public class CarConverter implements Converter {
         
         // Substring to remove "id=" from the string.
         // We are left with 1
-        regex = regex.substring(3);
+        regex = regex.substring(3).trim();
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "CarID: " + regex, regex));
         
         try {
             return carEJB.findCarById(Long.parseLong(regex));

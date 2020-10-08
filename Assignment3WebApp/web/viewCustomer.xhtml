@@ -1,16 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>View Customer</title>
+</h:head>
+<h:body>
+    <h1>View Customer: # #{customerController.customer.id}</h1>
+    <hr/>    
+    
+    <h:outputLabel value="First Name : "/>
+    <h:outputLabel value="#{customerController.customer.firstName}"/>
+    <br/>
+    
+    <h:outputLabel value="Last Name : "/>
+    <h:outputLabel value="#{customerController.customer.lastName}"/>
+    <br/>
+    
+    <h:outputLabel value="Office Phone : "/>
+    <h:outputLabel value="#{customerController.customer.officePhone}"/>
+    <br/>
+        
+    <h:outputLabel value="Mobile : "/>
+    <h:outputLabel value="#{customerController.customer.mobile}"/>
+    <br/>
+    
+    <h:outputLabel value="Email : "/>
+    <h:outputLabel value="#{customerController.customer.email}"/>
+    <br/>
+    
+    <hr/>
+    <h:form>
+        <h:link outcome="searchCustomer.xhtml" value="Search for a Customer"/> |
+        <h:link outcome="listCustomers.xhtml" value="View all Customers"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
+
+</h:body>
 </html>

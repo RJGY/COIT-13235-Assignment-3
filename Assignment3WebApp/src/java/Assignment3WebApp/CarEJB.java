@@ -46,15 +46,17 @@ public class CarEJB implements CarEJBRemote {
 
     @Override
     public Car findCarById(Long id) {
-        return em.find(Car.class, id);
+        TypedQuery<Car> query = em.createNamedQuery("Car.findCarById", Car.class);
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
     
     @Override
     public Car findCarByLicensePlate(String licensePlate)
     {
         TypedQuery<Car> query = em.createNamedQuery("Car.findCarByLicensePlate", Car.class);
-        query.setParameter("firstName", licensePlate);
-        return query.getSingleResult();
+        query.setParameter("licensePlate", licensePlate);
+        return query.getResultList().get(0);
     }
 
     @Override

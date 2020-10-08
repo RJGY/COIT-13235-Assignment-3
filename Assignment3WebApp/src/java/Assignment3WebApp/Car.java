@@ -16,8 +16,10 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries({
     @NamedQuery (name = "Car.findAllCars", query = "SELECT c FROM Car c"),
-    @NamedQuery (name = "Car.findCarByLicensePlate", query = "SELECT c From Car c "
-            + "WHERE c.licensePlate = :licensePlate")
+    @NamedQuery (name = "Car.findCarByLicensePlate", query = "SELECT c FROM Car c "
+            + "WHERE c.licensePlate = :licensePlate"),
+    @NamedQuery (name = "Car.findCarById", query = "SELECT c FROM Car c "
+            + "WHERE c.id = :id")
 })
 public class Car implements Serializable {
 

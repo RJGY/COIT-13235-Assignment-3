@@ -2,7 +2,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ago="http://java.sun.com/jsf/composite/apress">
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Create a Used Car</title>
 </h:head>
@@ -15,19 +16,21 @@
             <ago:createCar car="#{carController.usedCar}"/>
             <br/>
             <h:outputLabel value="Odometer : "/>
-            <h:inputText value="#{carController.usedCar.odometer}"/>
+            <h:inputText value="#{carController.usedCar.odometer}" required="true" requiredMessage="Odometer is required"/>
             
             <h:outputLabel value="Rego Number: "/>
-            <h:inputText value="#{carController.usedCar.regoNumber}"/>
+            <h:inputText value="#{carController.usedCar.regoNumber}" required="true" requiredMessage="Rego number is required"/>
             
             <h:outputLabel value="Rego Expiry : "/>
-            <h:inputText value="#{carController.usedCar.regoExpiry}"/>
+            <h:inputText value="#{carController.usedCar.regoExpiry}" required="true" requiredMessage="Rego Expiry is required">
+                <f:convertDateTime pattern="MM/dd/yy"/>
+            </h:inputText>
             
             <h:outputLabel value="Service History: "/>
-            <h:inputTextarea value="#{carController.usedCar.serviceHistory}" cols="20" rows="5"/>
+            <h:inputTextarea value="#{carController.usedCar.serviceHistory}" cols="20" rows="5" required="true" requiredMessage="Service History is required"/>
             
             <h:outputLabel value="Vehicle Identification Number : "/>
-            <h:inputText value="#{carController.usedCar.vehicleIN}"/>
+            <h:inputText value="#{carController.usedCar.vehicleIN}" required="true" requiredMessage="VIN is required"/>
         </h:panelGrid>
         <h:commandButton value="Create Used Car" action="#{carController.doCreateUsedCar}"/>
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="resultCar" required="true"/>
+</composite:interface>
+
+<composite:implementation>
+    
+    <h:outputLabel value="Brand : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.brand}"/>
+    <br/>
+
+    <h:outputLabel value="Model : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.model}"/>
+    <br/>
+
+    <h:outputLabel value="Drive Type : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.driveType}"/>
+    <br/>
+
+    <h:outputLabel value="Colour : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.colour}"/>
+    <br/>
+
+    <h:outputLabel value="Transmission Type : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.transmissionType}"/>
+    <br/>
+
+    <h:outputLabel value="Fuel Type : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.fuelType}"/>
+    <br/>
+
+    <h:outputLabel value="License Plate : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.licensePlate}"/>
+    <br/>
+
+    <h:outputLabel value="Number of Doors : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.nbrOfDoors}"/>
+    <br/>
+
+    <h:outputLabel value="Price : "/>
+    <h:outputLabel value="#{cc.attrs.resultCar.price}"/>
+    <br/>
+    
+</composite:implementation>
+</html>

@@ -15,19 +15,19 @@
         <h:panelGrid columns="2" >
             
             <h:outputLabel value="First Name : "/>
-            <h:inputText value="#{customerController.customer.firstName}"/>
+            <h:inputText value="#{customerController.customer.firstName}" required="true" requiredMessage="First name is required"/>
             
             <h:outputLabel value="Last Name : "/>
-            <h:inputText value="#{customerController.customer.lastName}"/>
+            <h:inputText value="#{customerController.customer.lastName}" required="true" requiredMessage="Last name is required"/>
             
             <h:outputLabel value="Office Phone : "/>
-            <h:inputText value="#{customerController.customer.officePhone}"/>
+            <h:inputText value="#{customerController.customer.officePhone}" required="true" requiredMessage="Office phone is required"/>
             
             <h:outputLabel value="Mobile : "/>
-            <h:inputText value="#{customerController.customer.mobile}"/>
+            <h:inputText value="#{customerController.customer.mobile}" required="true" requiredMessage="Mobile is required"/>
             
             <h:outputLabel value="Email : "/>
-            <h:inputText value="#{customerController.customer.email}"/>
+            <h:inputText value="#{customerController.customer.email}" required="true" requiredMessage="Email is required"/>
             
         </h:panelGrid>
         <h:commandButton value="Create Customer" action="#{customerController.doCreateNewCustomer}"/>

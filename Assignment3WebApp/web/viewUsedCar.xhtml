@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Viewing Used Car</title>
+</h:head>
+<h:body>
+    <h1>Viewing Used Car: # #{carController.resultCar.id}</h1>
+    <hr/>
+    <ago:viewBaseCar resultCar="#{carController.resultCar}"/>        
+    
+    <h:outputLabel value="Odometer : "/>
+    <h:outputLabel value="#{carController.resultUsedCar.odometer}"/>
+    <br/>
+    
+    <h:outputLabel value="Rego Number : "/>
+    <h:outputLabel value="#{carController.resultUsedCar.regoNumber}"/>
+    <br/>
+    
+    <h:outputLabel value="Rego Expiry : "/>
+    <h:outputLabel value="#{carController.resultUsedCar.regoExpiry}"/>
+    <br/>
+    
+    <h:outputLabel value="Service History : "/>
+    <h:outputLabel value="#{carController.resultUsedCar.serviceHistory}"/>
+    <br/>
+    
+    <h:outputLabel value="Vehicle Identification Number : "/>
+    <h:outputLabel value="#{carController.resultUsedCar.vehicleIN}"/>
+    <br/>
+    
+    <h:outputLabel value="Sold : "/>
+    <h:outputLabel value="#{carController.resultUsedCar.sold}"/>
+    <br/>
+
+    <hr/>
+    <h:form>
+        <h:link outcome="searchCar.xhtml" value="Search for a Car"/> |
+        <h:link outcome="listCars.xhtml" value="View all Cars"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
+
+</h:body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>View New Car</title>
+</h:head>
+<h:body>
+    <h1>View New Car: # #{carController.resultCar.id}</h1>
+    <hr/>
+    <ago:viewBaseCar resultCar="#{carController.resultCar}"/>        
+    
+    <h:outputLabel value="Warranty : "/>
+    <h:outputLabel value="#{carController.resultNewCar.warranty}"/>
+    <br/>
+    
+    <h:outputLabel value="Extended Warranty : "/>
+    <h:outputLabel value="#{carController.resultNewCar.extendedWarranty}"/>
+    <br/>
+    
+    <h:outputLabel value="Roadside Assistance : "/>
+    <h:outputLabel value="#{carController.resultNewCar.roadsideAssistance}"/>
+    <br/>
+        
+    <h:outputLabel value="Number of Cars : "/>
+    <h:outputLabel value="#{carController.resultNewCar.nbrOfCars}"/>
+    <br/>
+
+    <hr/>
+    <h:form>
+        <h:link outcome="searchCar.xhtml" value="Search for a Car"/> |
+        <h:link outcome="listCars.xhtml" value="View all Cars"/> |
+        <h:link outcome="default.xhtml" value="Home"/>
+    </h:form>
+
+</h:body>
+</html>

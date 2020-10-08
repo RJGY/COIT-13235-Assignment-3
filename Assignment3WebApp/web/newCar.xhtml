@@ -15,7 +15,7 @@
             <ago:createCar car="#{carController.newCar}"/>
             <br/>
             <h:outputLabel value="Warranty : "/>
-            <h:selectBooleanCheckbox value="#{carController.newCar.warranty}"/>
+            <h:selectBooleanCheckbox value="#{carController.newCar.warranty}" />
             
             <h:outputLabel value="Extended Warranty: "/>
             <h:selectBooleanCheckbox value="#{carController.newCar.extendedWarranty}"/>
@@ -24,7 +24,7 @@
             <h:selectBooleanCheckbox value="#{carController.newCar.roadsideAssistance}"/>
             
             <h:outputLabel value="Number of Cars : "/>
-            <h:inputText value="#{carController.newCar.nbrOfCars}"/>
+            <h:inputText value="#{carController.newCar.nbrOfCars}" required="true" requiredMessage="Number of cars is required"/>
         </h:panelGrid>
         <h:commandButton value="Create Car" action="#{carController.doCreateNewCar}"/>
 

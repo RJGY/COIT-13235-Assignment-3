@@ -16,7 +16,7 @@
         <h:panelGrid columns="2" >
             
             <h:outputLabel value="Order Description : "/>
-            <h:inputTextarea value="#{orderController.order.orderDescription}" cols="20" rows="5"/>
+            <h:inputTextarea value="#{orderController.order.orderDescription}" cols="20" rows="5" required="true" requiredMessage="Order Description is required"/>
             
             <h:outputLabel value=""/>
             <h:inputHidden value="#{orderController.order.timeCreated}" >
@@ -24,25 +24,25 @@
             </h:inputHidden>
             
             <h:outputLabel value="Car : "/>
-            <h:selectOneListbox converter="carConverter">
+            <h:selectOneListbox value="#{orderController.queryCarID}" required="true" requiredMessage="Car is required">
                 <f:selectItems value="#{carController.newCarList}"
                  var="car"
-                 itemValue="#{car}"
+                 itemValue="#{car.id}"
                  itemLabel="#{car.brand} #{car.model}"
                  noSelectionValue="#{carController.newCarList[0]}"/>
             </h:selectOneListbox>
             
             <h:outputLabel value="Customer : "/>
-            <h:selectOneListbox converter="customerConverter">
+            <h:selectOneListbox value="#{orderController.queryCustomerID}" required="true" requiredMessage="Customer is required">
                 <f:selectItems value="#{customerController.customerList}"
                  var="customer"
-                 itemValue="#{customer}"
+                 itemValue="#{customer.id}"
                  itemLabel="#{customer.firstName} #{customer.lastName}"
                  noSelectionValue="#{customerController.customerList[0]}"/>
             </h:selectOneListbox>
             
             <h:outputLabel value="Quantity : "/>
-            <h:inputText value="#{orderController.order.quantity}"/>
+            <h:inputText value="#{orderController.order.quantity}" required="true" requiredMessage="Quantity is required"/>
             
         </h:panelGrid>
         <h:commandButton value="Create Order" action="#{orderController.doCreateNewOrder}"/>

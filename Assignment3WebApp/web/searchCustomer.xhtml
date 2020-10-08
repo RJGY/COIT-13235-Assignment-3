@@ -5,12 +5,39 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head>
-        <title>TODO supply a title</title>
+        <title>Search for a Car</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1>Search for a car:</h1>
+        <hr/>
+        <h:form>
+            <h:outputLabel value="By ID : "/>
+            <h:inputText value="#{customerController.queryId}"/>
+            <h:commandButton action="#{customerController.doFindCustomerById}" value="Find Customer by ID"/>
+            <hr/>
+
+            <h:outputLabel value="By Name : "/>
+            <h:outputLabel value="First Name : "/>
+            <h:inputText value="#{customerController.queryFirstName}"/>
+            <h:outputLabel value="Last Name : "/>
+            <h:inputText value="#{customerController.queryLastName}"/>
+            <h:commandButton action="#{customerController.doFindCustomerByName}" value="Find Customer by Name"/>
+        </h:form>
+        <br/>
+        <hr/>
+        <h:form>
+            <h:link outcome="searchOrder.xhtml" value="Search for an Order"/> |
+            <h:link outcome="searchCar.xhtml" value="Search for a Car"/> |
+            <h:link outcome="listCustomers.xhtml" value="View all Customers"/> |
+            <h:link outcome="default.xhtml" value="Home"/>
+        </h:form>
     </body>
 </html>
