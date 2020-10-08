@@ -31,6 +31,45 @@
     <h:outputLabel value="Email : "/>
     <h:outputLabel value="#{customerController.customer.email}"/>
     <br/>
+    <h:outputLabel value="Orders"/>
+    <h:dataTable value="#{customerController.customer.orders}" var="order" border="1">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="ID"/>
+            </f:facet>
+            <h:outputText value="#{order.id}"/>
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Order Description"/>
+            </f:facet>
+            <h:outputText value="#{order.orderDescription}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Time Created"/>
+            </f:facet>
+            <h:outputText value="#{order.timeCreated}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Car"/>
+            </f:facet>
+            <h:outputText value="#{order.car.brand} #{order.car.model}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Quantity"/>
+            </f:facet>
+            <h:outputText value="#{order.quantity}"/>
+        </h:column>
+        
+        
+    </h:dataTable>
     
     <hr/>
     <h:form>
