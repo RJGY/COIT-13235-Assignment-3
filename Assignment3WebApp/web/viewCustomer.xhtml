@@ -59,7 +59,7 @@
                 <h:outputText value="Car"/>
             </f:facet>
             <h:form>
-                <h:commandButton value="#{order.car.brand} #{order.car.model}" action="#{carController.doFindCarById(order.car.id)}"/>
+                <h:outputText value="#{order.car.brand} #{order.car.model}"/>
             </h:form>
         </h:column>
 
